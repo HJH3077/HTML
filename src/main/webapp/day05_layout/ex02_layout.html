@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Layout</title>
+<style type="text/css">
+	* {box-sizing : border-box;} /* 무슨 박스 테두리 해결해 준다함 */
+	body{ font-family: Arial, Helvetica, sans-serif;} /* 글꼴 지정 */
+	header{
+		background-color: #666;
+		padding: 30px; /* 텍스트와 내부 박스 간격(딱히 상하 정의안하면 전체) */
+		color: white;
+		text-align: center; 
+		font-size: 35px;
+	}
+	nav{
+		float: left; /* 왼쪽으로 부터 띄움 */
+		width: 30%; /* 30%만 nav공간 차지 */
+		height: 300px;
+		background-color: #ccc;
+		padding: 20px;
+	}
+	nav li {list-style-type: none; /* li의 점을 삭제 */
+			padding: 0px; /* 각 nav별로 있기 때문에 0px로 간격을 없애 그 nav을 한곳에 모아둠 */
+	}
+	article {
+		float: left;
+		padding: 20px;
+		width: 70%; /* nav가 30% 이므로 이건 70%로 비율 조절 */
+		height: 300px; /* nav와 높이 통일 */
+		background-color: #f1f1f1;
+	}
+	/* float: left 지우기 (권장사항) 
+			  (footer는 밑으로 내려가므로 지워야됨) */
+	section::after{
+		content: "";
+		display: table; /* or block */
+		clear: both;
+	}
+	
+	footer{
+		background-color: #777;
+		padding: 10px;
+		color: white;
+		text-align: center;
+	}
+	
+</style>
+</head>
+<body>
+	<h2>CSS Layout Float</h2>
+	<p>In this example, we have created a header, two columns/boxes and
+		a footer. On smaller screens, the columns will stack on top of each
+		other.</p>
+	<p>Resize the browser window to see the responsive effect (you will
+		learn more about this in our next chapter - HTML Responsive.)</p>
+		
+	<header>
+		<h2>Cities</h2>
+	</header>
+	<section>
+		<nav>
+			<ul> <!-- ul,li로 만드는게 기본이고 메뉴니까 a태그 사용 -->
+				<li style="background-color: yellow"><a href="#">London</a></li> 
+				<li><a href="#">Paris</a></li> 
+				<li><a href="#">Tokyo</a></li> 
+			</ul>
+		</nav>
+		<article>
+			<h1> London </h1>
+			<p> ..... 내용 ..... </p>
+			<p> ..... 내용 ..... </p>
+			<p> ..... 내용 ..... </p>
+		</article>
+	</section>
+	<footer>
+		<p> footer </p>
+	</footer>
+
+
+</body>
+</html>
